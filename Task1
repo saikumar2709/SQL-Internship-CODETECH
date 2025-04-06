@@ -1,1 +1,33 @@
+CREATE TABLE Employees (
+EmpID INT,
+Name VARCHAR(100),
+DeptID INT
+);
 
+INSERT INTO Employees VALUES
+(1,'Ram',10),
+(2,'Bob',20),
+(3,'Charlie',NULL),
+(4,'David',10),
+(5,'Eva',30);
+
+CREATE TABLE Departments VALUES
+(10,'HR'),
+(20,'Engineering'),
+(40,'Marketing');
+
+SELECT E.Name,D.DeptName
+FROM Employees E
+INNER JOIN Departments D ON E.DeptID = D.DeptID;
+
+SELECT E.Name,D.DeptName
+FROM Employees E
+LEFT JOIN Departments D ON E.DeptID = D.DeptID;
+
+SELECT E.Name,D.DeptName
+FROM Employees E
+RIGHT JOIN Departments D ON E.DeptID = D.DeptID;
+
+SELECT E.Name,D.DeptName
+FROM Employees E
+FULL OUTER JOIN Departments D ON E.DeptID = D.DeptID;
